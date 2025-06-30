@@ -23,4 +23,4 @@ EXPOSE 5000
 EXPOSE 3000
 
 # Start backend on 5000 and frontend on 3000
-CMD sh -c "node backend/server.js & serve -s frontend -l 3000"
+CMD sh -c "node backend/index.js & serve -s frontend -l 3000"
