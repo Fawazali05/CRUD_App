@@ -4,7 +4,7 @@ FROM node:18
 # Set working directory
 WORKDIR /app
 
-# Copy backend and frontend folders
+# Copy both frontend and backend
 COPY backend backend/
 COPY frontend frontend/
 
@@ -15,12 +15,12 @@ RUN npm install
 # Install static file server
 RUN npm install -g serve
 
-# Go back to root
+# Return to app root
 WORKDIR /app
 
 # Expose backend and frontend ports
-EXPOSE 3000
 EXPOSE 5000
+EXPOSE 3000
 
-# Start both backend and frontend servers
-CMD sh -c "node backend/server.js & serve -s frontend -l 5000"
+# Start backend on 5000 and frontend on 3000
+CMD sh -c "node backend/server.js & serve -s frontend -l 3000"
